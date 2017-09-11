@@ -101,15 +101,5 @@ cfs <- function(data,user_data,num_rec=20,num_sim=50){
 }
 
 
-#lets evaluate the results
-n = nrow(test_d)
-recommendation = NULL
-same_as_rl=logical(n)
-for (i in 1:n){
-  recommendation[[i]]=cfs(train_d,test_d[i,])
-  same_as_rl[i]=all(predic_ibcf@items[[i]] %in% recommendation[[i]]$recommendation)
-}
-table(same_as_rl)
-
 
 #credit : https://rstudio-pubs-static.s3.amazonaws.com/249909_e9f45fd3d3f44cfea9b37a935b286b81.html
